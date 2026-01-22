@@ -1,0 +1,23 @@
+﻿@* ContactInfo.razor *@
+
+<div class="contacts">
+    <div>✉️ @Email</div>
+    <div>📞 @Phone</div>
+</div>
+
+@code {
+    [Parameter] public string Email { get; set; } = "";
+    [Parameter] public string Phone { get; set; } = "";
+}
+
+<style>
+    .contacts {
+        margin: 1.5rem 0;
+        font-size: 1.05rem;
+        line-height: 1.7;
+    }
+
+        .contacts div {
+            margin: 0.4rem 0;
+        }
+</style>

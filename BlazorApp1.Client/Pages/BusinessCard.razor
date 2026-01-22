@@ -1,0 +1,66 @@
+﻿@* BusinessCard.razor *@
+
+<div class="card">
+    <HeaderPhoto />
+
+    <h2>@Name</h2>
+    <div class="position">@Position</div>
+    <div class="location">📍 @Location</div>
+
+    <ContactInfo Email="sunmeatrich@gmail.com" Phone="+380 (63) 03-000-35" />
+
+    <SocialLinks />
+
+    <FooterNote />
+</div>
+
+
+@code {
+    [Parameter] public string Name { get; set; } = "Невідомо";
+    [Parameter] public string Position { get; set; } = "";
+    [Parameter] public string Location { get; set; } = "";
+
+    protected override void OnInitialized()
+    {
+        // тут можна щось ініціалізувати
+        Console.WriteLine("BusinessCard → OnInitialized");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        // імітація асинхронної роботи (наприклад, завантаження аватарки)
+        await Task.Delay(300);
+        Console.WriteLine("BusinessCard → OnInitializedAsync завершено");
+    }
+
+    protected override void OnParametersSet()
+    {
+        Console.WriteLine($"Оновилися параметри: {Name}");
+    }
+}
+
+<style>
+    .card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+        padding: 2.5rem;
+        text-align: center;
+    }
+
+    h2 {
+        margin: 0.4em 0 0.1em;
+        color: #1a1a1a;
+    }
+
+    .position {
+        font-size: 1.1rem;
+        color: #555;
+        margin-bottom: 0.8rem;
+    }
+
+    .location {
+        color: #777;
+        margin-bottom: 1.5rem;
+    }
+</style>
