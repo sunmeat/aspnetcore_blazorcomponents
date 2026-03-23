@@ -1,13 +1,12 @@
-﻿using BlazorApp1.Client.Pages; // імпорт простору імен сторінок клієнтської частини
 using BlazorApp1.Components; // імпорт простору імен спільних компонентів
 
 namespace BlazorApp1 
 {
     public class Program 
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
-            var builder = WebApplication.CreateBuilder(args); // фабрика веб-додатка
+            var builder = WebApplication.CreateBuilder(); // фабрика веб-додатка
             builder.Services.AddRazorComponents() // підтримка Razor-компонентів
                 .AddInteractiveServerComponents() // інтерактивний серверний режим (SignalR)
                 .AddInteractiveWebAssemblyComponents(); // інтерактивний WebAssembly-режим
@@ -22,7 +21,7 @@ namespace BlazorApp1
                 app.UseHsts(); // Strict-Transport-Security, щоб браузери завжди використовували HTTPS
             }
             app.UseStatusCodePagesWithReExecute("/not-found", createScopeForStatusCodePages: true); // перенаправлення помилкових статус-кодів на /not-found
-            app.UseHttpsRedirection(); // перенаправлення http → https
+            app.UseHttpsRedirection(); // перенаправлення http > https
             app.UseAntiforgery(); // захист від CSRF-атак
             app.MapStaticAssets(); // статичні файли з wwwroot
             app.MapRazorComponents<App>() // реєстрація кореневого компонента App.razor
