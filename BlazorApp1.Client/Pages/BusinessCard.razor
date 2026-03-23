@@ -23,14 +23,14 @@
     protected override void OnInitialized()
     {
         // тут можна щось ініціалізувати
-        Console.WriteLine("BusinessCard → OnInitialized");
+        Console.WriteLine("BusinessCard > OnInitialized");
     }
 
     protected override async Task OnInitializedAsync()
     {
         // імітація асинхронної роботи (наприклад, завантаження аватарки)
         await Task.Delay(300);
-        Console.WriteLine("BusinessCard → OnInitializedAsync завершено");
+        Console.WriteLine("BusinessCard > OnInitializedAsync завершено");
     }
 
     protected override void OnParametersSet()
